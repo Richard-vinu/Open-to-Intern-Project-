@@ -57,11 +57,12 @@ const createCollege = async (req, res) => {
 //----------------------------⭐GET/collegeDetails⭐----------------------------//
 
 const getCollegeDetails = async (req, res) => {
+  res.setHeader('Access-Control-Allow-Origin','*')
   try {
     const clgName = req.query;
     let { collegeName } = req.query;
 
-     console.log(collegeName);
+    
     if (!collegeName)return res.status(400).send({ status: false, message: "CollgeName is required" });
 
     if (Object.keys(clgName).length > 1)
@@ -90,7 +91,7 @@ const getCollegeDetails = async (req, res) => {
       name: name,
       fullName: fullName,
       logoLink: logoLink,
-      interns: intern.length ? intern.length: { msg: "0 application from this collge" }};
+      interns: intern.length ? intern: { msg: "0 application from this collge" }};
 
     return res.status(200).send({ status: true, data: data })}
 

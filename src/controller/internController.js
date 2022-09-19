@@ -5,6 +5,7 @@ const internsModel = require("../models/internsModel");
 
 
 const createIntern = async (req, res) => {
+    
     try {
         let data = req.body
         let {name , mobile , email, collegeName} = data
