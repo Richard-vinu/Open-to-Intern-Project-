@@ -8,6 +8,7 @@ const regfname = /^[a-zA-Z,'.\s]{0,150}$/
 let urlreg = /^https?:\/\/(.+\/)+.+(\.(gif|png|jpg|jpeg|webp|svg|psd|bmp|tif))$/i
 
 const createCollege = async (req, res) => {
+  res.setHeader('Access-Control-Allow-Origin','*')
   try {
     let data = req.body;
 
